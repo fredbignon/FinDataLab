@@ -975,106 +975,165 @@
   .delay-5 { animation-delay: 0.5s; }
   .delay-6 { animation-delay: 0.6s; }
 
-  /* === ACTUALITÉS SECTION === */
+  /* === ACTUALITÉS SECTION (VISUAL) === */
   .actus {
     max-width: 1200px;
-    margin: 0 auto 5rem;
+    margin: 0 auto 4rem;
     padding: 0 2rem;
   }
 
   .actus-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
   }
 
   .actu-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.25rem;
-    transition: all 0.3s;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.35s;
     cursor: default;
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .actu-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    border-color: rgba(255,255,255,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.1);
   }
 
-  .actu-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+  /* Illustration area */
+  .actu-visual {
+    height: 140px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
-    flex-shrink: 0;
   }
 
-  .actu-icon-credit { background: rgba(0, 212, 170, 0.12); }
-  .actu-icon-climate { background: rgba(245, 158, 11, 0.12); }
-  .actu-icon-data { background: rgba(99, 102, 241, 0.12); }
-  .actu-icon-finance { background: rgba(236, 72, 153, 0.12); }
-
-  .actu-content h4 {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
-    line-height: 1.35;
+  .actu-visual-finance {
+    background: linear-gradient(135deg, #1a1033, #0f172a 50%, #1e1145);
+  }
+  .actu-visual-climate {
+    background: linear-gradient(135deg, #1a2910, #0f172a 50%, #2a1d05);
+  }
+  .actu-visual-credit {
+    background: linear-gradient(135deg, #0a2420, #0f172a 50%, #0a2a2a);
+  }
+  .actu-visual-data {
+    background: linear-gradient(135deg, #15103a, #0f172a 50%, #1a0a3a);
   }
 
-  .actu-content p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-weight: 300;
+  .actu-visual svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  .actu-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 0.6rem;
+  .actu-visual-emoji {
+    font-size: 3rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
   }
 
-  .actu-date {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-  }
-
-  .actu-source {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    padding: 0.15rem 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+  .actu-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, var(--bg-card), transparent);
+    z-index: 1;
   }
 
   .actu-flash {
     position: absolute;
     top: 12px;
     right: 12px;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
+    z-index: 3;
   }
 
   .actu-flash-new {
-    background: rgba(0, 212, 170, 0.15);
+    background: rgba(0, 212, 170, 0.2);
     color: var(--accent-credit);
+    backdrop-filter: blur(8px);
   }
+
+  .actu-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .actu-body h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .actu-body p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .actu-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .actu-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .actu-source {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    padding: 0.12rem 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .actu-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  .actu-tag-finance { background: rgba(236, 72, 153, 0.12); color: var(--accent-finance); }
+  .actu-tag-climate { background: rgba(245, 158, 11, 0.12); color: var(--accent-climate); }
+  .actu-tag-credit { background: rgba(0, 212, 170, 0.12); color: var(--accent-credit); }
+  .actu-tag-data { background: rgba(99, 102, 241, 0.12); color: var(--accent-data); }
 
   /* === VISUAL SUMMARY (L'essentiel pour les nuls) === */
   .visual-summary {
@@ -1217,7 +1276,7 @@
     .featured-visual { min-height: 220px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .nav-links { display: none; }
-    .actus-grid { grid-template-columns: 1fr; }
+    .actus-grid { grid-template-columns: 1fr 1fr; }
     .vs-grid { grid-template-columns: 1fr 1fr; }
     .vs-flow { gap: 0.25rem; }
   }
@@ -1229,6 +1288,7 @@
     .newsletter-form { flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr; }
     .vs-grid { grid-template-columns: 1fr; }
+    .actus-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1298,6 +1358,140 @@
           <div class="floating-tag floating-tag-2">🌍 ESG & Climat</div>
           <div class="floating-tag floating-tag-3">🤖 ML Models</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUALITÉS -->
+  <section id="actualites" style="padding-top: 1rem;">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Actualités</h2>
+      <span class="section-subtitle">Veille Finance, Risque & Data</span>
+    </div>
+
+    <div class="actus">
+      <div class="actus-grid">
+
+        <!-- ACTU 1 — Finance / BCE -->
+        <div class="actu-card fade-in delay-1">
+          <div class="actu-visual actu-visual-finance">
+            <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="90" width="24" height="35" rx="4" fill="rgba(236,72,153,0.2)"/>
+              <rect x="54" y="70" width="24" height="55" rx="4" fill="rgba(236,72,153,0.25)"/>
+              <rect x="88" y="50" width="24" height="75" rx="4" fill="rgba(236,72,153,0.3)"/>
+              <rect x="122" y="60" width="24" height="65" rx="4" fill="rgba(236,72,153,0.25)"/>
+              <rect x="156" y="45" width="24" height="80" rx="4" fill="rgba(236,72,153,0.35)"/>
+              <rect x="190" y="55" width="24" height="70" rx="4" fill="rgba(236,72,153,0.3)"/>
+              <rect x="224" y="40" width="24" height="85" rx="4" fill="rgba(236,72,153,0.4)"/>
+              <rect x="258" y="42" width="24" height="83" rx="4" fill="rgba(236,72,153,0.35)"/>
+              <line x1="15" y1="125" x2="290" y2="125" stroke="rgba(236,72,153,0.15)" stroke-width="1"/>
+              <path d="M30 88 L65 68 L100 48 L135 58 L168 43 L202 53 L236 38 L270 40" stroke="rgba(236,72,153,0.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="168" cy="43" r="4" fill="#ec4899" opacity="0.8"/>
+              <text x="155" y="30" fill="rgba(236,72,153,0.5)" font-size="10" font-family="monospace">2.75%</text>
+            </svg>
+            <span class="actu-flash actu-flash-new">Nouveau</span>
+          </div>
+          <div class="actu-body">
+            <h4>La BCE maintient ses taux à 2.75% en février 2026</h4>
+            <p>Pause monétaire confirmée en zone euro. Les marchés anticipent une première baisse au T2 2026 dans un contexte de désinflation progressive.</p>
+            <div class="actu-meta">
+              <span class="actu-date">6 fév. 2026</span>
+              <span class="actu-source">BCE</span>
+              <span class="actu-tag actu-tag-finance">Finance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTU 2 — Climate / CSRD -->
+        <div class="actu-card fade-in delay-2">
+          <div class="actu-visual actu-visual-climate">
+            <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="150" cy="70" r="45" stroke="rgba(245,158,11,0.2)" stroke-width="1.5" fill="none"/>
+              <circle cx="150" cy="70" r="32" stroke="rgba(245,158,11,0.15)" stroke-width="1" fill="none"/>
+              <ellipse cx="150" cy="70" rx="45" ry="18" stroke="rgba(245,158,11,0.15)" stroke-width="1" fill="none"/>
+              <ellipse cx="150" cy="70" rx="18" ry="45" stroke="rgba(245,158,11,0.12)" stroke-width="1" fill="none"/>
+              <path d="M130 55 Q140 35 150 50 Q160 35 170 55 Q175 45 180 58 Q165 48 150 60 Q135 48 130 55Z" fill="rgba(34,197,94,0.25)"/>
+              <path d="M120 72 Q135 60 150 75 Q165 60 180 72 Q185 65 188 74 Q170 62 150 78 Q130 62 120 72Z" fill="rgba(34,197,94,0.2)"/>
+              <line x1="150" y1="25" x2="150" y2="115" stroke="rgba(245,158,11,0.08)" stroke-width="0.5"/>
+              <line x1="105" y1="70" x2="195" y2="70" stroke="rgba(245,158,11,0.08)" stroke-width="0.5"/>
+              <text x="210" y="45" fill="rgba(245,158,11,0.4)" font-size="9" font-family="monospace">ESRS</text>
+              <text x="210" y="58" fill="rgba(245,158,11,0.3)" font-size="9" font-family="monospace">CSRD</text>
+              <text x="40" y="100" fill="rgba(34,197,94,0.3)" font-size="8" font-family="monospace">2025 report</text>
+            </svg>
+            <span class="actu-flash actu-flash-new">Nouveau</span>
+          </div>
+          <div class="actu-body">
+            <h4>CSRD : premiers rapports de durabilité publiés par les grandes entreprises</h4>
+            <p>La directive européenne entre dans sa phase opérationnelle. Les entreprises cotées de l'UE publient leurs rapports conformes ESRS pour l'exercice 2025.</p>
+            <div class="actu-meta">
+              <span class="actu-date">4 fév. 2026</span>
+              <span class="actu-source">EFRAG</span>
+              <span class="actu-tag actu-tag-climate">Climat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTU 3 — Credit / EBA -->
+        <div class="actu-card fade-in delay-3">
+          <div class="actu-visual actu-visual-credit">
+            <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 110 Q80 100 110 80 Q140 60 170 65 Q200 70 230 40 Q250 25 275 20" stroke="rgba(0,212,170,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M40 110 Q80 100 110 80 Q140 60 170 65 Q200 70 230 40 Q250 25 275 20 L275 130 L40 130Z" fill="url(#grad-credit)" opacity="0.15"/>
+              <defs><linearGradient id="grad-credit" x1="150" y1="20" x2="150" y2="130"><stop offset="0%" stop-color="#00d4aa"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
+              <circle cx="110" cy="80" r="3" fill="#00d4aa" opacity="0.6"/>
+              <circle cx="170" cy="65" r="3" fill="#00d4aa" opacity="0.6"/>
+              <circle cx="230" cy="40" r="3" fill="#00d4aa" opacity="0.8"/>
+              <line x1="40" y1="130" x2="280" y2="130" stroke="rgba(0,212,170,0.1)" stroke-width="1"/>
+              <text x="195" y="60" fill="rgba(0,212,170,0.4)" font-size="9" font-family="monospace">PD retail</text>
+              <rect x="40" y="15" width="50" height="18" rx="3" fill="rgba(0,212,170,0.1)"/>
+              <text x="47" y="27" fill="rgba(0,212,170,0.5)" font-size="8" font-family="monospace">IRB models</text>
+            </svg>
+          </div>
+          <div class="actu-body">
+            <h4>EBA : consultation sur la révision des guidelines IRB retail</h4>
+            <p>L'Autorité Bancaire Européenne affine les modèles internes pour le crédit retail, avec un focus sur la segmentation et la calibration des PD.</p>
+            <div class="actu-meta">
+              <span class="actu-date">1 fév. 2026</span>
+              <span class="actu-source">EBA</span>
+              <span class="actu-tag actu-tag-credit">Crédit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTU 4 — Data / AI Act -->
+        <div class="actu-card fade-in delay-4">
+          <div class="actu-visual actu-visual-data">
+            <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="150" cy="70" r="28" stroke="rgba(99,102,241,0.3)" stroke-width="1.5" fill="rgba(99,102,241,0.05)"/>
+              <circle cx="150" cy="70" r="8" fill="rgba(99,102,241,0.3)"/>
+              <line x1="150" y1="42" x2="150" y2="15" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <circle cx="150" cy="12" r="5" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <line x1="174" y1="84" x2="200" y2="105" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <circle cx="205" cy="110" r="5" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <line x1="126" y1="84" x2="100" y2="105" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <circle cx="95" cy="110" r="5" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <line x1="122" y1="62" x2="70" y2="42" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <circle cx="65" cy="38" r="5" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <line x1="178" y1="62" x2="230" y2="42" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+              <circle cx="235" cy="38" r="5" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <text x="136" y="73" fill="rgba(99,102,241,0.7)" font-size="11" font-family="monospace">AI</text>
+              <text x="55" y="25" fill="rgba(99,102,241,0.3)" font-size="7" font-family="monospace">scoring</text>
+              <text x="215" y="25" fill="rgba(99,102,241,0.3)" font-size="7" font-family="monospace">audit</text>
+              <text x="195" y="128" fill="rgba(99,102,241,0.3)" font-size="7" font-family="monospace">bias</text>
+              <text x="75" y="128" fill="rgba(99,102,241,0.3)" font-size="7" font-family="monospace">explain</text>
+            </svg>
+          </div>
+          <div class="actu-body">
+            <h4>AI Act : premières obligations pour le scoring crédit bancaire</h4>
+            <p>Les systèmes d'IA « à haut risque » utilisés pour l'évaluation de la solvabilité sont désormais soumis aux exigences de transparence et d'audit de l'AI Act européen.</p>
+            <div class="actu-meta">
+              <span class="actu-date">29 jan. 2026</span>
+              <span class="actu-source">Commission EU</span>
+              <span class="actu-tag actu-tag-data">Data & IA</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1429,94 +1623,6 @@
             <span class="article-read-time">8 min de lecture</span>
           </div>
         </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ACTUALITÉS -->
-  <section id="actualites" style="padding-top:2rem;">
-    <div class="section-header fade-in">
-      <h2 class="section-title">Actualités</h2>
-      <span class="section-subtitle">Veille Finance, Risque & Data</span>
-    </div>
-
-    <div class="actus">
-      <div class="actus-grid">
-
-        <div class="actu-card fade-in delay-1">
-          <div class="actu-icon actu-icon-finance">🏦</div>
-          <div class="actu-content">
-            <h4>La BCE maintient ses taux directeurs à 2.75% en février 2026</h4>
-            <p>Le Conseil des gouverneurs confirme la pause monétaire entamée fin 2025, dans un contexte de désinflation progressive en zone euro. Les marchés anticipent une première baisse au T2.</p>
-            <div class="actu-meta">
-              <span class="actu-date">6 fév. 2026</span>
-              <span class="actu-source">BCE</span>
-            </div>
-          </div>
-          <span class="actu-flash actu-flash-new">Nouveau</span>
-        </div>
-
-        <div class="actu-card fade-in delay-2">
-          <div class="actu-icon actu-icon-climate">🌍</div>
-          <div class="actu-content">
-            <h4>CSRD : les premières entreprises publient leurs rapports de durabilité</h4>
-            <p>La directive européenne CSRD entre dans sa phase opérationnelle. Les grandes entreprises cotées de l'UE publient leurs premiers rapports conformes aux normes ESRS pour l'exercice 2025.</p>
-            <div class="actu-meta">
-              <span class="actu-date">4 fév. 2026</span>
-              <span class="actu-source">EFRAG</span>
-            </div>
-          </div>
-          <span class="actu-flash actu-flash-new">Nouveau</span>
-        </div>
-
-        <div class="actu-card fade-in delay-3">
-          <div class="actu-icon actu-icon-credit">📊</div>
-          <div class="actu-content">
-            <h4>EBA : consultation sur la révision des guidelines IRB pour les portefeuilles retail</h4>
-            <p>L'Autorité Bancaire Européenne lance une consultation publique sur l'affinement des modèles internes IRB pour le crédit retail, avec un focus sur la segmentation et la calibration des PD.</p>
-            <div class="actu-meta">
-              <span class="actu-date">1 fév. 2026</span>
-              <span class="actu-source">EBA</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="actu-card fade-in delay-4">
-          <div class="actu-icon actu-icon-data">🤖</div>
-          <div class="actu-content">
-            <h4>L'AI Act européen : premières obligations en vigueur pour le secteur financier</h4>
-            <p>Les systèmes d'IA « à haut risque » utilisés dans le scoring crédit et l'évaluation de la solvabilité sont désormais soumis aux exigences de transparence et d'audit de l'AI Act.</p>
-            <div class="actu-meta">
-              <span class="actu-date">29 jan. 2026</span>
-              <span class="actu-source">Commission EU</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="actu-card fade-in delay-3">
-          <div class="actu-icon actu-icon-climate">🔥</div>
-          <div class="actu-content">
-            <h4>2025 confirmée comme l'année la plus chaude : impact sur les stress tests climatiques</h4>
-            <p>Copernicus confirme que 2025 a dépassé +1.6°C vs l'ère pré-industrielle. Les superviseurs bancaires européens renforcent les exigences de couverture du risque physique dans les exercices 2026.</p>
-            <div class="actu-meta">
-              <span class="actu-date">25 jan. 2026</span>
-              <span class="actu-source">Copernicus / BCE</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="actu-card fade-in delay-4">
-          <div class="actu-icon actu-icon-finance">📈</div>
-          <div class="actu-content">
-            <h4>Bâle IV : l'output floor passe à 55% — calendrier de transition respecté</h4>
-            <p>Conformément au calendrier prévu, le plancher de capital passe de 50% à 55% en janvier 2026. Les banques européennes les plus impactées ajustent leurs plans d'émission de capital.</p>
-            <div class="actu-meta">
-              <span class="actu-date">20 jan. 2026</span>
-              <span class="actu-source">BIS / CRR3</span>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
