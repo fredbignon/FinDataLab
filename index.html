@@ -1009,7 +1009,7 @@
     <li><a href="#" data-filter="climate">Risque Climat</a></li>
     <li><a href="#" data-filter="data">Data</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
-    <li><a href="#" class="nav-subscribe">S'abonner</a></li>
+    <li><a href="#newsletter" class="nav-subscribe" onclick="showHome(event); setTimeout(()=>document.getElementById('newsletter').scrollIntoView({behavior:'smooth'}),100);">S'abonner</a></li>
   </ul>
 </nav>
 
@@ -1040,7 +1040,7 @@
           <h3>Thèmes du lab</h3>
           <div class="stats-grid">
             <div class="stat-item">
-              <div class="stat-number">12</div>
+              <div class="stat-number">13</div>
               <div class="stat-label">Articles Crédit</div>
             </div>
             <div class="stat-item">
@@ -1048,11 +1048,11 @@
               <div class="stat-label">Articles Data</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">6</div>
+              <div class="stat-number">8</div>
               <div class="stat-label">Articles Climat</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">10</div>
+              <div class="stat-number">11</div>
               <div class="stat-label">Finance Bancaire</div>
             </div>
           </div>
@@ -1162,6 +1162,36 @@
           </div>
         </a>
 
+        <a class="article-card fade-in delay-2" data-topic="credit" onclick="openArticle('credit3', event)">
+          <span class="tag tag-credit">Risque de crédit</span>
+          <h3>Risque de contrepartie : comprendre le CVA et le DVA en pratique</h3>
+          <p>Au-delà du risque de crédit classique, le risque de contrepartie sur les dérivés OTC introduit des ajustements de valorisation complexes. Décryptage du CVA, DVA et de leur impact sur le P&L.</p>
+          <div class="article-footer">
+            <span class="article-date">7 fév. 2026</span>
+            <span class="article-read-time">10 min de lecture</span>
+          </div>
+        </a>
+
+        <a class="article-card fade-in delay-3" data-topic="finance" onclick="openArticle('finance2', event)">
+          <span class="tag tag-finance">Finance Bancaire</span>
+          <h3>LCR et NSFR : les deux ratios de liquidité qui disciplinent les banques</h3>
+          <p>Depuis la crise de 2008, les régulateurs exigent des banques qu'elles détiennent suffisamment d'actifs liquides. Comment fonctionnent le LCR et le NSFR, et pourquoi sont-ils stratégiques ?</p>
+          <div class="article-footer">
+            <span class="article-date">7 fév. 2026</span>
+            <span class="article-read-time">9 min de lecture</span>
+          </div>
+        </a>
+
+        <a class="article-card fade-in delay-4" data-topic="climate" onclick="openArticle('climate3', event)">
+          <span class="tag tag-climate">Risque Climatique</span>
+          <h3>ESG scoring : comment noter la durabilité des entreprises et à quoi ça sert ?</h3>
+          <p>Les scores ESG orientent des milliers de milliards d'investissements. Mais qui les produit, selon quelles méthodes, et peut-on vraiment s'y fier ? État des lieux critique.</p>
+          <div class="article-footer">
+            <span class="article-date">7 fév. 2026</span>
+            <span class="article-read-time">8 min de lecture</span>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1172,10 +1202,12 @@
       <div class="newsletter-card">
         <h2>Restez dans la boucle</h2>
         <p>Un article par semaine, zéro spam. Finance, risque et data décryptés dans votre boîte mail.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="votre@email.com">
-          <button class="btn-primary" onclick="subscribeNewsletter(event)">S'inscrire →</button>
-        </div>
+        <!-- MAILCHIMP INTEGRATION -->
+        <form class="newsletter-form" id="mc-form" action="https://gmail.us6.list-manage.com/subscribe/post?u=0727619b3152a006e7015d1c8&id=cd759a0ccc" method="post" target="_blank">
+          <input type="email" name="EMAIL" placeholder="votre@email.com" required>
+          <button type="submit" class="btn-primary">S'inscrire →</button>
+        </form>
+        <p id="mc-success" style="display:none; color:var(--accent-credit); font-size:0.9rem; margin-top:1rem; position:relative;">✓ Merci ! Vérifiez votre boîte mail pour confirmer.</p>
       </div>
     </div>
   </section>
@@ -1363,6 +1395,74 @@
 
         <p>Les défis restent majeurs : disponibilité et fiabilité des données ESG des contreparties, interprétation des critères techniques, gestion des activités « transitionnelles ». Mais la direction est claire : la durabilité est en train de s'intégrer au cœur de la gestion du risque bancaire.</p>
       `
+    },
+    credit3: {
+      tag: '<span class="tag tag-credit">Risque de crédit</span><span class="featured-date" style="margin-left:1rem;">7 fév. 2026</span>',
+      title: 'Risque de contrepartie : comprendre le CVA et le DVA en pratique',
+      body: `
+        <p>Lorsqu'une banque entre dans un contrat dérivé OTC — un swap de taux, un forward de change, une option — elle s'expose au risque que sa contrepartie fasse défaut avant l'échéance du contrat. Ce risque, dit « de contrepartie », est distinct du risque de crédit classique car l'exposition fluctue avec les marchés. C'est là qu'interviennent le CVA et le DVA.</p>
+
+        <h2>Le CVA : Credit Valuation Adjustment</h2>
+        <p>Le CVA représente le coût du risque de défaut de la contrepartie. Concrètement, c'est la différence entre la valeur d'un dérivé en supposant la contrepartie sans risque et sa valeur en intégrant la possibilité qu'elle fasse défaut. Il se calcule comme l'espérance actualisée des pertes potentielles, en combinant trois composantes : le profil d'exposition future (EPE — Expected Positive Exposure), la probabilité de défaut de la contrepartie (extraite des CDS spreads ou de modèles internes) et la LGD estimée.</p>
+
+        <blockquote>Le CVA transforme le risque de crédit en un problème de pricing de marché — et c'est ce qui le rend à la fois fascinant et redoutable.</blockquote>
+
+        <h2>Le DVA : Debit Valuation Adjustment</h2>
+        <p>Le DVA est le miroir du CVA : il mesure le gain potentiel pour la banque lié à son propre risque de défaut. Dit autrement, si la banque elle-même fait défaut, elle « gagne » en ne remboursant pas intégralement ses obligations. C'est un concept contre-intuitif et controversé : une dégradation de la qualité de crédit de la banque améliore son P&L via le DVA. Ce paradoxe a alimenté de vifs débats comptables et réglementaires.</p>
+
+        <h2>L'impact réglementaire et comptable</h2>
+        <p>Sous IFRS 13, les banques doivent comptabiliser le CVA et le DVA en fair value. Côté prudentiel, Bâle III a introduit une charge en capital spécifique pour le CVA (le « CVA risk charge »), qui est l'une des sources majeures de consommation de capital sur les activités de marché. La réforme SA-CVA de Bâle IV durcit encore ces exigences avec une approche standard plus sensible au risque.</p>
+
+        <h2>Les enjeux opérationnels</h2>
+        <p>Calculer le CVA en pratique est un défi technique considérable. Il faut simuler des milliers de scénarios de marché sur l'horizon de vie du portefeuille (simulation Monte Carlo), agréger les expositions nettes par contrepartie en tenant compte des accords de netting et du collatéral (CSA), et calibrer les probabilités de défaut à partir de données de marché souvent peu liquides. Les desks CVA sont devenus des centres névralgiques où se croisent traders, quants, risk managers et développeurs — un microcosme où finance de marché et risque de crédit ne font plus qu'un.</p>
+      `
+    },
+    finance2: {
+      tag: '<span class="tag tag-finance">Finance Bancaire</span><span class="featured-date" style="margin-left:1rem;">7 fév. 2026</span>',
+      title: 'LCR et NSFR : les deux ratios de liquidité qui disciplinent les banques',
+      body: `
+        <p>La crise financière de 2008 a révélé une faille béante : des banques pouvaient être solvables sur le papier mais incapables de faire face à leurs engagements à court terme, faute de liquidités. En réponse, le Comité de Bâle a introduit deux ratios de liquidité devenus incontournables : le LCR et le NSFR.</p>
+
+        <h2>Le LCR — Liquidity Coverage Ratio</h2>
+        <p>Le LCR mesure la capacité d'une banque à survivre à un stress de liquidité de 30 jours. La formule est simple dans son principe : <code>LCR = HQLA / Sorties nettes à 30 jours ≥ 100%</code>. Le numérateur (HQLA — High-Quality Liquid Assets) comprend les actifs facilement convertibles en cash : cash lui-même, réserves auprès de la banque centrale, obligations souveraines bien notées. Le dénominateur estime les sorties de trésorerie attendues en situation de crise (retraits de dépôts, tirages de lignes, appels de marge) nettes des entrées prévues.</p>
+
+        <blockquote>Le LCR oblige les banques à détenir un matelas d'actifs liquides suffisant pour tenir 30 jours sans accès aux marchés — un filet de sécurité post-Lehman.</blockquote>
+
+        <h2>Le NSFR — Net Stable Funding Ratio</h2>
+        <p>Si le LCR couvre le court terme, le NSFR vise la stabilité structurelle du financement sur un horizon d'un an. Il se calcule comme le ratio entre le financement stable disponible (ASF — Available Stable Funding : fonds propres, dépôts retail stables, dette long terme) et le financement stable requis (RSF — Required Stable Funding, pondéré selon la liquidité de chaque actif). L'objectif est de limiter le décalage entre la maturité des actifs et celle des passifs — le fameux « maturity mismatch » qui a fait tomber Northern Rock.</p>
+
+        <h2>L'impact stratégique pour les banques</h2>
+        <p>Ces deux ratios ont profondément transformé la gestion de bilan des banques. Le LCR a gonflé les portefeuilles d'obligations souveraines (actifs HQLA par excellence), pesant sur la rentabilité puisque ces actifs rapportent peu. Le NSFR a renchéri le coût du financement de marché court terme, poussant les banques à allonger la maturité de leurs émissions obligataires et à privilégier les dépôts retail — la « guerre des dépôts » que l'on observe depuis plusieurs années.</p>
+
+        <h2>Au-delà des ratios minimum</h2>
+        <p>En pratique, les banques pilotent leur liquidité bien au-delà des minimums réglementaires. Elles maintiennent des buffers supplémentaires, réalisent des stress tests internes sur des horizons et des scénarios plus sévères que ceux du LCR, et ont mis en place des comités ALM (Asset-Liability Management) qui supervisent quotidiennement les positions de liquidité. Le ratio réglementaire est un plancher ; la gestion effective de la liquidité est un art d'équilibriste entre rentabilité, sécurité et conformité.</p>
+      `
+    },
+    climate3: {
+      tag: '<span class="tag tag-climate">Risque Climatique</span><span class="featured-date" style="margin-left:1rem;">7 fév. 2026</span>',
+      title: 'ESG scoring : comment noter la durabilité des entreprises et à quoi ça sert ?',
+      body: `
+        <p>Les scores ESG (Environnement, Social, Gouvernance) sont devenus un outil central dans les décisions d'investissement et de crédit. Des milliers de milliards d'euros sont alloués en fonction de ces notations. Pourtant, le marché du scoring ESG reste fragmenté, opaque et parfois contradictoire. Décryptage.</p>
+
+        <h2>Qui produit les scores ESG ?</h2>
+        <p>Le marché est dominé par une poignée de fournisseurs : MSCI ESG Ratings, Sustainalytics (Morningstar), S&P Global ESG Scores, ISS ESG, et CDP pour les données climatiques. Chacun utilise sa propre méthodologie, ses propres pondérations et ses propres sources de données. Résultat : une même entreprise peut être notée « leader » par un fournisseur et « moyenne » par un autre. Des études académiques ont montré des corrélations aussi faibles que 0.4 entre les principales agences — un niveau de désaccord impensable dans le credit rating traditionnel.</p>
+
+        <blockquote>Quand deux agences de notation crédit divergent, c'est une anomalie. Quand deux agences ESG divergent, c'est la norme.</blockquote>
+
+        <h2>Le pilier E — Environnement</h2>
+        <p>Le pilier environnemental couvre les émissions carbone (scopes 1, 2, et le très contesté scope 3), la consommation d'énergie et d'eau, la gestion des déchets, la biodiversité et l'exposition aux risques climatiques physiques. C'est le pilier qui a le plus progressé en termes de standardisation, notamment grâce au cadre TCFD (Task Force on Climate-related Financial Disclosures) et à la directive européenne CSRD qui imposera un reporting détaillé à des milliers d'entreprises.</p>
+
+        <h2>Le pilier S — Social</h2>
+        <p>Le pilier social évalue les pratiques en matière de droit du travail, de diversité et inclusion, de santé et sécurité, de relations avec les communautés locales et de respect des droits humains dans la chaîne d'approvisionnement. C'est le pilier le plus difficile à quantifier : comment comparer une politique de diversité chez un géant tech californien avec les pratiques sociales d'un groupe minier en Afrique du Sud ?</p>
+
+        <h2>Le pilier G — Gouvernance</h2>
+        <p>La gouvernance couvre la structure du conseil d'administration, la rémunération des dirigeants, l'éthique des affaires, la transparence fiscale et la lutte contre la corruption. C'est paradoxalement le pilier le plus ancien (les proxy advisors évaluent la gouvernance depuis des décennies) et celui qui a la corrélation la plus directe avec la performance financière.</p>
+
+        <h2>Quel impact pour les banques ?</h2>
+        <p>Les banques utilisent les scores ESG de trois façons. D'abord, pour le screening : exclure ou surpondérer des secteurs dans les portefeuilles de crédit et d'investissement. Ensuite, pour le pricing : certaines banques appliquent un bonus/malus sur le spread de crédit en fonction du score ESG de l'emprunteur. Enfin, pour le reporting réglementaire : la BCE et l'EBA exigent une transparence croissante sur l'intégration des facteurs ESG dans le processus de crédit.</p>
+
+        <p>Le défi pour les années à venir sera la convergence des méthodologies et l'amélioration de la qualité des données sous-jacentes. La réglementation européenne (CSRD, SFDR, taxonomie) pousse dans cette direction, mais le chemin vers un scoring ESG aussi fiable et standardisé que le credit rating reste long. En attendant, les banques doivent naviguer dans un écosystème imparfait — et c'est précisément ce qui rend le sujet passionnant.</p>
+      `
     }
   };
 
@@ -1423,15 +1523,15 @@
     document.getElementById('articlePage').classList.remove('active');
   }
 
-  // Newsletter mock
-  function subscribeNewsletter(event) {
-    event.preventDefault();
-    const input = document.querySelector('.newsletter-form input');
-    if (input.value.includes('@')) {
-      input.value = '';
-      input.placeholder = '✓ Inscrit ! Bienvenue dans le Lab';
-      input.style.borderColor = 'var(--accent-credit)';
-    }
+  // Newsletter Mailchimp form feedback
+  const mcForm = document.getElementById('mc-form');
+  if (mcForm) {
+    mcForm.addEventListener('submit', function() {
+      setTimeout(() => {
+        document.getElementById('mc-success').style.display = 'block';
+        mcForm.querySelector('input').value = '';
+      }, 500);
+    });
   }
 
   // Nav filter links
