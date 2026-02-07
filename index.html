@@ -975,6 +975,239 @@
   .delay-5 { animation-delay: 0.5s; }
   .delay-6 { animation-delay: 0.6s; }
 
+  /* === ACTUALITÉS SECTION === */
+  .actus {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+  }
+
+  .actus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .actu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .actu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .actu-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .actu-icon-credit { background: rgba(0, 212, 170, 0.12); }
+  .actu-icon-climate { background: rgba(245, 158, 11, 0.12); }
+  .actu-icon-data { background: rgba(99, 102, 241, 0.12); }
+  .actu-icon-finance { background: rgba(236, 72, 153, 0.12); }
+
+  .actu-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .actu-content p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .actu-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.6rem;
+  }
+
+  .actu-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .actu-source {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .actu-flash {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .actu-flash-new {
+    background: rgba(0, 212, 170, 0.15);
+    color: var(--accent-credit);
+  }
+
+  /* === VISUAL SUMMARY (L'essentiel pour les nuls) === */
+  .visual-summary {
+    margin-top: 3rem;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .vs-header {
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+  }
+
+  .vs-header-credit { background: linear-gradient(135deg, rgba(0,212,170,0.15), rgba(0,212,170,0.05)); color: var(--accent-credit); }
+  .vs-header-climate { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05)); color: var(--accent-climate); }
+  .vs-header-data { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05)); color: var(--accent-data); }
+  .vs-header-finance { background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(236,72,153,0.05)); color: var(--accent-finance); }
+
+  .vs-body {
+    background: var(--bg-card);
+    padding: 2rem;
+  }
+
+  .vs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .vs-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .vs-item:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-2px);
+  }
+
+  .vs-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .vs-item-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .vs-item-value {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .vs-takeaway {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .vs-takeaway-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .vs-takeaway-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .vs-takeaway-text strong {
+    color: var(--text-primary);
+  }
+
+  .vs-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .vs-flow-step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .vs-flow-step-emoji {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .vs-flow-step-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .vs-flow-arrow {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
   /* === RESPONSIVE === */
   @media (max-width: 900px) {
     .hero-content { grid-template-columns: 1fr; }
@@ -984,6 +1217,9 @@
     .featured-visual { min-height: 220px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .nav-links { display: none; }
+    .actus-grid { grid-template-columns: 1fr; }
+    .vs-grid { grid-template-columns: 1fr 1fr; }
+    .vs-flow { gap: 0.25rem; }
   }
 
   @media (max-width: 600px) {
@@ -992,6 +1228,7 @@
     .newsletter-card { padding: 2rem 1.5rem; }
     .newsletter-form { flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr; }
+    .vs-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1005,6 +1242,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#articles" onclick="showHome(event)">Articles</a></li>
+    <li><a href="#actualites" onclick="showHome(event); setTimeout(()=>document.getElementById('actualites').scrollIntoView({behavior:'smooth'}),100);">Actualités</a></li>
     <li><a href="#" data-filter="credit">Risque Crédit</a></li>
     <li><a href="#" data-filter="climate">Risque Climat</a></li>
     <li><a href="#" data-filter="data">Data</a></li>
@@ -1191,6 +1429,94 @@
             <span class="article-read-time">8 min de lecture</span>
           </div>
         </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUALITÉS -->
+  <section id="actualites" style="padding-top:2rem;">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Actualités</h2>
+      <span class="section-subtitle">Veille Finance, Risque & Data</span>
+    </div>
+
+    <div class="actus">
+      <div class="actus-grid">
+
+        <div class="actu-card fade-in delay-1">
+          <div class="actu-icon actu-icon-finance">🏦</div>
+          <div class="actu-content">
+            <h4>La BCE maintient ses taux directeurs à 2.75% en février 2026</h4>
+            <p>Le Conseil des gouverneurs confirme la pause monétaire entamée fin 2025, dans un contexte de désinflation progressive en zone euro. Les marchés anticipent une première baisse au T2.</p>
+            <div class="actu-meta">
+              <span class="actu-date">6 fév. 2026</span>
+              <span class="actu-source">BCE</span>
+            </div>
+          </div>
+          <span class="actu-flash actu-flash-new">Nouveau</span>
+        </div>
+
+        <div class="actu-card fade-in delay-2">
+          <div class="actu-icon actu-icon-climate">🌍</div>
+          <div class="actu-content">
+            <h4>CSRD : les premières entreprises publient leurs rapports de durabilité</h4>
+            <p>La directive européenne CSRD entre dans sa phase opérationnelle. Les grandes entreprises cotées de l'UE publient leurs premiers rapports conformes aux normes ESRS pour l'exercice 2025.</p>
+            <div class="actu-meta">
+              <span class="actu-date">4 fév. 2026</span>
+              <span class="actu-source">EFRAG</span>
+            </div>
+          </div>
+          <span class="actu-flash actu-flash-new">Nouveau</span>
+        </div>
+
+        <div class="actu-card fade-in delay-3">
+          <div class="actu-icon actu-icon-credit">📊</div>
+          <div class="actu-content">
+            <h4>EBA : consultation sur la révision des guidelines IRB pour les portefeuilles retail</h4>
+            <p>L'Autorité Bancaire Européenne lance une consultation publique sur l'affinement des modèles internes IRB pour le crédit retail, avec un focus sur la segmentation et la calibration des PD.</p>
+            <div class="actu-meta">
+              <span class="actu-date">1 fév. 2026</span>
+              <span class="actu-source">EBA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actu-card fade-in delay-4">
+          <div class="actu-icon actu-icon-data">🤖</div>
+          <div class="actu-content">
+            <h4>L'AI Act européen : premières obligations en vigueur pour le secteur financier</h4>
+            <p>Les systèmes d'IA « à haut risque » utilisés dans le scoring crédit et l'évaluation de la solvabilité sont désormais soumis aux exigences de transparence et d'audit de l'AI Act.</p>
+            <div class="actu-meta">
+              <span class="actu-date">29 jan. 2026</span>
+              <span class="actu-source">Commission EU</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actu-card fade-in delay-3">
+          <div class="actu-icon actu-icon-climate">🔥</div>
+          <div class="actu-content">
+            <h4>2025 confirmée comme l'année la plus chaude : impact sur les stress tests climatiques</h4>
+            <p>Copernicus confirme que 2025 a dépassé +1.6°C vs l'ère pré-industrielle. Les superviseurs bancaires européens renforcent les exigences de couverture du risque physique dans les exercices 2026.</p>
+            <div class="actu-meta">
+              <span class="actu-date">25 jan. 2026</span>
+              <span class="actu-source">Copernicus / BCE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actu-card fade-in delay-4">
+          <div class="actu-icon actu-icon-finance">📈</div>
+          <div class="actu-content">
+            <h4>Bâle IV : l'output floor passe à 55% — calendrier de transition respecté</h4>
+            <p>Conformément au calendrier prévu, le plancher de capital passe de 50% à 55% en janvier 2026. Les banques européennes les plus impactées ajustent leurs plans d'émission de capital.</p>
+            <div class="actu-meta">
+              <span class="actu-date">20 jan. 2026</span>
+              <span class="actu-source">BIS / CRR3</span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -1502,6 +1828,205 @@
   }
 
   // Open article
+  // === VISUAL SUMMARIES DATA ===
+  const summaries = {
+    featured: {
+      theme: 'credit',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🎯', label: 'PD', value: 'Probabilité de Défaut — Chance que l\'emprunteur ne rembourse pas (ex: 2%)' },
+        { emoji: '💔', label: 'LGD', value: 'Perte en Cas de Défaut — Ce qu\'on perd vraiment (15-80% selon les garanties)' },
+        { emoji: '💰', label: 'EAD', value: 'Exposition au Défaut — Combien la banque a prêté au moment du défaut' },
+      ],
+      flow: [
+        { emoji: '🏦', label: 'La banque prête' },
+        { emoji: '📊', label: 'Elle calcule PD × LGD × EAD' },
+        { emoji: '🛡️', label: 'Elle met du capital de côté' },
+      ],
+      takeaway: "En résumé : la banque évalue <strong>qui risque de ne pas payer</strong> (PD), <strong>combien elle perdra</strong> (LGD), et <strong>combien est en jeu</strong> (EAD). Ces 3 chiffres déterminent les provisions et le capital requis."
+    },
+    climate1: {
+      theme: 'climate',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🌊', label: 'Risque physique', value: 'Inondations, sécheresses, canicules → dégâts directs' },
+        { emoji: '⚖️', label: 'Risque de transition', value: 'Nouvelles lois, taxes carbone → actifs qui perdent leur valeur' },
+        { emoji: '🔮', label: 'Scénarios NGFS', value: '3 trajectoires possibles du climat testées sur 3 à 30 ans' },
+      ],
+      flow: [
+        { emoji: '📋', label: 'La BCE demande un stress test' },
+        { emoji: '🗺️', label: 'La banque cartographie ses risques' },
+        { emoji: '🧮', label: 'Elle simule les pertes possibles' },
+        { emoji: '📊', label: 'Elle publie les résultats' },
+      ],
+      takeaway: "En résumé : les banques doivent prouver qu'elles <strong>survivraient au réchauffement climatique</strong>. Elles testent différents scénarios (optimiste à catastrophique) et calculent les pertes potentielles sur leurs crédits."
+    },
+    data1: {
+      theme: 'data',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '📈', label: 'Régression logistique', value: 'Le champion classique — simple, explicable, réglementairement accepté' },
+        { emoji: '🤖', label: 'Machine Learning', value: 'Le challenger — plus performant (+2 à 8 pts Gini) mais opaque' },
+        { emoji: '🔍', label: 'SHAP', value: 'Outil pour expliquer les décisions du ML (explicabilité post-hoc)' },
+      ],
+      flow: [
+        { emoji: '📋', label: 'Données client' },
+        { emoji: '🧠', label: 'Modèle de scoring' },
+        { emoji: '✅', label: 'Score = bon/mauvais payeur' },
+        { emoji: '🏦', label: 'Décision crédit' },
+      ],
+      takeaway: "En résumé : le Machine Learning prédit mieux qui va faire défaut, mais <strong>personne ne comprend vraiment pourquoi</strong>. L'avenir est à l'hybridation : garder le modèle classique pour le régulateur, le ML pour challenger."
+    },
+    finance1: {
+      theme: 'finance',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🏗️', label: 'Output Floor 72.5%', value: 'Le capital calculé par modèle interne ne peut pas descendre sous 72.5% du calcul standard' },
+        { emoji: '📐', label: 'Approche standard révisée', value: 'Plus granulaire, prend en compte le ratio LTV pour l\'immobilier' },
+        { emoji: '⏳', label: 'Transition → 2030', value: 'Les nouvelles règles s\'appliquent progressivement jusqu\'en 2030' },
+      ],
+      flow: [
+        { emoji: '🏦', label: 'La banque a des crédits' },
+        { emoji: '🧮', label: 'Elle calcule le capital requis' },
+        { emoji: '⬆️', label: 'Bâle IV = plus de capital' },
+        { emoji: '💶', label: 'Crédits plus chers' },
+      ],
+      takeaway: "En résumé : Bâle IV oblige les banques à <strong>mettre plus d'argent de côté</strong> pour couvrir les risques. Résultat : les crédits pourraient coûter un peu plus cher, mais le système bancaire sera plus solide."
+    },
+    credit2: {
+      theme: 'credit',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🟢', label: 'Stage 1', value: 'Tout va bien → provision sur 12 mois seulement' },
+        { emoji: '🟡', label: 'Stage 2', value: 'Le risque augmente → provision sur toute la durée du prêt' },
+        { emoji: '🔴', label: 'Stage 3', value: 'Le client a fait défaut → actif déprécié' },
+      ],
+      flow: [
+        { emoji: '🤝', label: 'Prêt accordé (Stage 1)' },
+        { emoji: '⚠️', label: 'Risque augmente (Stage 2)' },
+        { emoji: '❌', label: 'Défaut (Stage 3)' },
+      ],
+      takeaway: "En résumé : avant IFRS 9, les banques attendaient qu'un client <strong>soit en défaut</strong> pour provisionner. Maintenant elles doivent anticiper les pertes <strong>dès le premier signe de dégradation</strong>. Plus prudent, mais plus cher en période de crise."
+    },
+    data2: {
+      theme: 'data',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '📏', label: 'Qualité des données', value: 'Complètes ? Exactes ? Cohérentes ? À jour ? C\'est la base.' },
+        { emoji: '🗺️', label: 'Data Lineage', value: 'Tracer d\'où vient chaque donnée et comment elle a été transformée' },
+        { emoji: '👤', label: 'Data Ownership', value: 'Chaque métier est responsable de la qualité de ses propres données' },
+      ],
+      flow: [
+        { emoji: '📥', label: 'Donnée collectée' },
+        { emoji: '🔍', label: 'Contrôle qualité' },
+        { emoji: '📦', label: 'Stockage catalogue' },
+        { emoji: '🧠', label: 'Utilisée dans un modèle' },
+      ],
+      takeaway: "En résumé : <strong>un modèle aussi bon que ses données</strong>. Sans gouvernance, les modèles de risque peuvent produire des résultats faux. C'est un sujet business et réglementaire (BCBS 239), pas juste un sujet technique."
+    },
+    climate2: {
+      theme: 'climate',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🌿', label: 'Taxonomie verte', value: 'Un dictionnaire européen qui définit ce qui est \"durable\" ou non' },
+        { emoji: '📊', label: 'Green Asset Ratio', value: 'La part du bilan de la banque investie dans des activités vertes (souvent < 5%)' },
+        { emoji: '💰', label: 'Pricing ESG', value: 'Crédit moins cher si le projet est vert, plus cher s\'il est polluant' },
+      ],
+      flow: [
+        { emoji: '📋', label: 'L\'UE définit les critères' },
+        { emoji: '🏭', label: 'L\'entreprise se classe verte ou non' },
+        { emoji: '🏦', label: 'La banque ajuste son pricing' },
+        { emoji: '📈', label: 'Le GAR est publié' },
+      ],
+      takeaway: "En résumé : l'Europe construit un <strong>label vert pour la finance</strong>. Les banques doivent dire combien de leurs crédits sont \"verts\" et cela influence le coût du crédit. Pas encore parfait, mais la direction est claire."
+    },
+    credit3: {
+      theme: 'credit',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '📉', label: 'CVA', value: 'Credit Valuation Adjustment — le coût du risque que l\'autre fasse défaut' },
+        { emoji: '📈', label: 'DVA', value: 'Debit Valuation Adjustment — le \"gain\" lié à notre propre risque de défaut (controversé !)' },
+        { emoji: '🎰', label: 'Monte Carlo', value: 'Simuler des milliers de scénarios pour estimer les pertes possibles' },
+      ],
+      flow: [
+        { emoji: '🤝', label: 'Contrat dérivé OTC' },
+        { emoji: '📊', label: 'L\'exposition fluctue' },
+        { emoji: '⚠️', label: 'Risque de défaut contrepartie' },
+        { emoji: '💸', label: 'CVA = coût de ce risque' },
+      ],
+      takeaway: "En résumé : quand deux banques font un contrat dérivé, chacune risque que l'autre fasse faillite. Le <strong>CVA chiffre ce risque en euros</strong>. C'est devenu un poste majeur de consommation de capital depuis Bâle III."
+    },
+    finance2: {
+      theme: 'finance',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '⏱️', label: 'LCR', value: 'Liquidity Coverage Ratio — assez de cash pour tenir 30 jours de crise ?' },
+        { emoji: '📅', label: 'NSFR', value: 'Net Stable Funding Ratio — financement stable sur 1 an ?' },
+        { emoji: '🏦', label: 'HQLA', value: 'High-Quality Liquid Assets — le matelas de sécurité en actifs liquides' },
+      ],
+      flow: [
+        { emoji: '💶', label: 'Les clients retirent leur argent' },
+        { emoji: '🏦', label: 'La banque utilise ses HQLA' },
+        { emoji: '⏱️', label: 'Le LCR doit rester ≥ 100%' },
+        { emoji: '✅', label: 'La banque survit 30 jours' },
+      ],
+      takeaway: "En résumé : après la crise de 2008, les régulateurs ont dit aux banques : <strong>gardez assez de cash pour survivre 30 jours sans aide</strong> (LCR) et <strong>financez-vous de manière stable</strong> (NSFR). Simple sur le papier, stratégique dans la réalité."
+    },
+    climate3: {
+      theme: 'climate',
+      title: "L'essentiel en un coup d'œil",
+      cards: [
+        { emoji: '🌍', label: 'E — Environnement', value: 'Émissions CO₂, énergie, eau, déchets, biodiversité' },
+        { emoji: '👥', label: 'S — Social', value: 'Droit du travail, diversité, santé, droits humains' },
+        { emoji: '🏛️', label: 'G — Gouvernance', value: 'Conseil d\'admin, rémunération, éthique, transparence' },
+      ],
+      flow: [
+        { emoji: '🏭', label: 'L\'entreprise publie ses données' },
+        { emoji: '📊', label: 'L\'agence calcule un score E+S+G' },
+        { emoji: '🏦', label: 'La banque ajuste ses décisions' },
+        { emoji: '💰', label: 'Impact sur le crédit et l\'investissement' },
+      ],
+      takeaway: "En résumé : les scores ESG notent les entreprises sur 3 axes (Environnement, Social, Gouvernance). Problème : <strong>deux agences peuvent donner des notes très différentes</strong> à la même entreprise. Le marché mûrit mais reste imparfait."
+    }
+  };
+
+  // Generate visual summary HTML
+  function buildSummaryHTML(s) {
+    const themeClass = s.theme;
+    let cardsHTML = s.cards.map(c => `
+      <div class="vs-item">
+        <span class="vs-emoji">${c.emoji}</span>
+        <div class="vs-item-title">${c.label}</div>
+        <div class="vs-item-value" style="font-family:var(--font-body); font-size:0.88rem; font-weight:300; color:var(--text-secondary);">${c.value}</div>
+      </div>
+    `).join('');
+
+    let flowHTML = '';
+    if (s.flow) {
+      flowHTML = '<div class="vs-flow">' + s.flow.map((f, i) => {
+        let arrow = i < s.flow.length - 1 ? '<span class="vs-flow-arrow">→</span>' : '';
+        return `<div class="vs-flow-step"><span class="vs-flow-step-emoji">${f.emoji}</span><span class="vs-flow-step-label">${f.label}</span></div>${arrow}`;
+      }).join('') + '</div>';
+    }
+
+    return `
+      <div class="visual-summary">
+        <div class="vs-header vs-header-${themeClass}">
+          <span>💡</span> ${s.title}
+        </div>
+        <div class="vs-body">
+          <div class="vs-grid">${cardsHTML}</div>
+          ${flowHTML}
+          <div class="vs-takeaway">
+            <span class="vs-takeaway-icon">🎯</span>
+            <div class="vs-takeaway-text">${s.takeaway}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Open article (enhanced with visual summary)
   function openArticle(id, event) {
     if (event) event.preventDefault();
     const article = articles[id];
@@ -1509,7 +2034,12 @@
 
     document.getElementById('articleMeta').innerHTML = article.tag;
     document.getElementById('articleTitle').textContent = article.title;
-    document.getElementById('articleBody').innerHTML = article.body;
+
+    let bodyHTML = article.body;
+    if (summaries[id]) {
+      bodyHTML += buildSummaryHTML(summaries[id]);
+    }
+    document.getElementById('articleBody').innerHTML = bodyHTML;
 
     document.getElementById('homepage').classList.add('hidden');
     document.getElementById('articlePage').classList.add('active');
